@@ -1,33 +1,75 @@
-.App {
-  text-align: center;
+
+.mycontainer, .searchresult, .app {
+    height: 1000px;
+    background-color: #282c34;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.card-image {
+    height: 150px;
+    width: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card-body {
+    overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.card-title {
+    height: 60px;
+}
+
+.card-text {
+
+}
+
+.eventcard {
+    margin-left: 7px;
+    margin-top: 15px;
+    margin-right: 7px;
+}
+
+h1 {
+    color: #61dafb;
+    text-align: center;
+    padding-top: 30px;
+    font-family: "DejaVu Sans"  ;
+    background-color: #282c34;
+    padding-bottom: 15px;
+    font-size: 65px;
+
+
+}
+
+.header {
+    background-color: #61dafb;
+    height: 100px;
+    text-align: center;
+}
+
+
+.gomb {
+    margin: 10px;
+    border-radius: 0.5px;
+
+}
+
+.searchform {
+    text-align: center;
+}
+
+.input {
+    margin: 5px;
+    border-radius: 0.2px;
+}
+
+.searchresult {
+    text-align: center;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

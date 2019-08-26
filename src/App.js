@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 import './App.css';
+import Header from './components/Header.js';
+import SearchForm from "./components/SearchForm";
+import SearchResult from "./components/SearchResult";
+import SavedResults from "./components/SavedResults";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    state = {
+        datas: [],
+        savedDatas: []
+    };
+
+    receivingData = (dataFromChild) => this.setState({datas: dataFromChild});
+
+    receivedSavedData = (dataFromChild) => this.setState({savedDatas : dataFromChild});
+
+
+    render() {
+
+        return (
+            <Router>
+                <div className="app">
+                    <Header sendDataToParent={this.receivedSavedData}/>
+                    <SearchForm sendDataToParent={this.receivingData}/>
+                    <Route path="/search" render={props => (
+                        <SearchResult datas={this.state.datas}/>
+                    )}/>
+                    <Route path="/saved" render={props => (
+                        <SavedResults savedDatas={this.state.savedDatas}/>
+                    )}/>
+                </div>
+            </Router>
+
+        )
+
+    }
+
 }
 
 export default App;
