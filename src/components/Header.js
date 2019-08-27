@@ -40,11 +40,15 @@ class Header extends Component {
                     <h1>Event Temple</h1>
                 </div>
                 <div className="d-flex justify-content-center">
-                <Button className="btn gomb  d-flex justify-content-center"  variant="outline-info"
-                    onClick={(event) => {
-                            this.redirectToSaved();
-                            this.componentDidMount();
-                        }}>My Saved Events</Button>
+                    <Button className="btn gomb  d-flex justify-content-center" variant="outline-info"
+                            onClick={(event) => {
+                                this.redirectToSaved();
+                                this.componentDidMount();
+                            }}>My Saved Events</Button>
+                    <Button className="btn gomb  d-flex justify-content-center" variant="outline-info"
+                            href="http://localhost:3000/searchform">Search for Events</Button>
+                    <Button className="btn gomb d-flex justify-content-center" variant="outline-info"
+                            href="http://localhost:3000/about">About</Button>
                 </div>
             </div>
 

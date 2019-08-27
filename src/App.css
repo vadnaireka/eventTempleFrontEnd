@@ -35,8 +35,21 @@ h1 {
     background-color: #282c34;
     padding-bottom: 15px;
     font-size: 65px;
+}
 
+h5 {
+    color: #61dafb;
+    text-align: center;
+    padding-top: 15px;
+    font-family: "DejaVu Sans";
+    padding-bottom: 40px;
+}
 
+h6 {
+    color: #61dafb;
+    text-align: center;
+    font-family: "DejaVu Sans";
+    padding-left: 15px;
 }
 
 .header {
@@ -57,7 +70,7 @@ h1 {
 }
 
 .input {
-    margin: 5px;
+    margin: 20px 5px;
     border-radius: 0.2px;
 }
 
@@ -73,3 +86,22 @@ h1 {
         transform: rotate(360deg);
     }
 }
+
+.profilePicture {
+    height: 200px;
+    width: 185px;
+    margin: 0 auto;
+    border: 3px solid #61dafb;
+    }
+
+.homeText {
+    text-align: center;
+}
+/*
+.imageContainer {
+    line-height: 300px;
+    height: 300px;
+    border: 3px solid #61dafb;
+    margin: 0 auto;
+}
+ */

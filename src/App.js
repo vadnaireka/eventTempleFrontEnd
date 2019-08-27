@@ -5,6 +5,7 @@ import Header from './components/Header.js';
 import SearchForm from "./components/SearchForm";
 import SearchResult from "./components/SearchResult";
 import SavedResults from "./components/SavedResults";
+import Welcome from "./components/Welcome";
 
 class App extends Component {
     state = {
@@ -14,7 +15,7 @@ class App extends Component {
 
     receivingData = (dataFromChild) => this.setState({datas: dataFromChild});
 
-    receivedSavedData = (dataFromChild) => this.setState({savedDatas : dataFromChild});
+    receivedSavedData = (dataFromChild) => this.setState({savedDatas: dataFromChild});
 
 
     render() {
@@ -23,7 +24,12 @@ class App extends Component {
             <Router>
                 <div className="app">
                     <Header sendDataToParent={this.receivedSavedData}/>
-                    <SearchForm sendDataToParent={this.receivingData}/>
+                    <Route path="/searchform" render={props => (
+                        <SearchForm sendDataToParent={this.receivingData}/>
+                    )}/>
+                    <Route path="/about" render={props => (
+                        <Welcome/>
+                    )}/>
                     <Route path="/search" render={props => (
                         <SearchResult datas={this.state.datas}/>
                     )}/>

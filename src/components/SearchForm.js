@@ -50,7 +50,7 @@ class SearchForm extends Component {
                            placeholder="Date to : 2019-10-02" value={this.state.endDate}/>
                     <input onChange={this.onChange} className="input" type="text" name="keyword" placeholder="music"
                            value={this.state.keyword}/>
-                    <input className="btn btn-outline-secondary" type="submit" name="" value="Submit"/>
+                    <p><input className="btn btn-outline-secondary" type="submit" name="" value="Submit"/></p>
                 </form>
             </div>
 

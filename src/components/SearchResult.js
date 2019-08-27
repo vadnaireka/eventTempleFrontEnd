@@ -5,12 +5,15 @@ import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import * as PropTypes from "prop-types";
 import '../App.css';
+import SearchForm from "./SearchForm";
+import Rating from "react-rating";
 
 
 class EventCard extends Component {
 
     state = {
-        button : "Save"
+        button: "Save",
+        rating: 0
     };
 
     saveToDB = (data) => {
@@ -19,6 +22,11 @@ class EventCard extends Component {
             eventEntity: data.id
         });
         this.setState({button: "Saved"})
+    };
+
+    saveRating = (data, rate) => {
+        console.log( " and the rate: " + rate);
+        axios.post(`http://localhost:8080/saverating/`, {rating: rate, eventEntityId: data.id});
     };
 
 
@@ -30,6 +38,7 @@ class EventCard extends Component {
                 <Card.Text className="card-text">{this.props.data.date} {this.props.data.time}</Card.Text>
                 <Button className="btn" variant="primary"
                         onClick={() => this.saveToDB(this.props.data)}>{this.state.button}</Button>
+                <Rating onClick={(rate) => this.saveRating(this.props.data, rate)}/>
             </Card.Body>
         </Card>;
     }
@@ -44,17 +53,20 @@ EventCard.propTypes = {
 class SearchResult extends Component {
 
     state = {
+        datas: [],
         button: "Save"
     }
 
+    receivingData = (dataFromChild) => this.setState({datas: dataFromChild});
 
 
     render() {
         return (
             <div className="searchresult">
+                <SearchForm sendDataToParent={this.receivingData}/>
                 {this.props.datas.map((data) => (
 
-                    <EventCard data={data} onClick={() => this.saveToDB(data)} />
+                    <EventCard data={data} onClick={() => this.saveToDB(data)}/>
                 ))}
             </div>
         )
