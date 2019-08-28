@@ -3,6 +3,7 @@ import {Redirect} from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../App.css';
+import context from "../DataProvider";
 
 
 class SearchForm extends Component {
@@ -26,6 +27,7 @@ class SearchForm extends Component {
             .then(response => {
                 this.setState({receivedResponse: Array.from(response.data)});
                 this.props.sendDataToParent(Array.from(response.data));
+                this.context.saveAllData(response.data);
                 this.setState({redirect: true});
                 console.log("searchform : " + response.data);
             })
@@ -54,9 +56,10 @@ class SearchForm extends Component {
                     <p><input className="btn btn-outline-secondary" type="submit" name="" value="Submit"/></p>
                 </form>
             </div>
-
         )
     }
 }
+
+SearchForm.contextType = context;
 
 export default SearchForm;

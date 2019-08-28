@@ -6,6 +6,7 @@ import SearchForm from "./components/SearchForm";
 import SearchResult from "./components/SearchResult";
 import SavedResults from "./components/SavedResults";
 import Welcome from "./components/Welcome";
+import {DataProvider} from "./DataProvider";
 
 class App extends Component {
     state = {
@@ -13,7 +14,10 @@ class App extends Component {
         savedDatas: []
     };
 
-    receivingData = (dataFromChild) => this.setState({datas: dataFromChild});
+    receivingData = (dataFromChild) => {
+        console.log(dataFromChild);
+        this.setState({datas: dataFromChild})
+    };
 
     receivedSavedData = (dataFromChild) => this.setState({savedDatas: dataFromChild});
 
@@ -21,24 +25,25 @@ class App extends Component {
     render() {
         console.log("App : " + this.state.datas);
         return (
-            <Router>
-                <div className="app">
-                    <Header sendDataToParent={this.receivedSavedData}/>
-                    <Route path="/searchform" render={props => (
-                        <SearchForm sendDataToParent={this.receivingData}/>
-                    )}/>
-                    <Route path="/about" render={props => (
-                        <Welcome/>
-                    )}/>
-                    <Route path="/search" render={props => (
-                        <SearchResult datas={this.state.datas}/>
-                    )}/>
-                    <Route path="/saved" render={props => (
-                        <SavedResults savedDatas={this.state.savedDatas}/>
-                    )}/>
-                </div>
-            </Router>
-
+            <DataProvider>
+                <Router>
+                    <div className="app">
+                        <Header sendDataToParent={this.receivedSavedData}/>
+                        <Route path="/searchform" render={props => (
+                            <SearchForm sendDataToParent={this.receivingData}/>
+                        )}/>
+                        <Route path="/about" render={props => (
+                            <Welcome/>
+                        )}/>
+                        <Route path="/search" render={props => (
+                            <SearchResult datas={this.state.datas}/>
+                        )}/>
+                        <Route path="/saved" render={props => (
+                            <SavedResults savedDatas={this.state.savedDatas}/>
+                        )}/>
+                    </div>
+                </Router>
+            </DataProvider>
         )
 
     }

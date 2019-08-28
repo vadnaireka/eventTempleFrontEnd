@@ -6,7 +6,6 @@ import Rating from "react-rating";
 import axios from "axios";
 
 
-
 class SavedResults extends Component {
     state = {
         rating: 0
