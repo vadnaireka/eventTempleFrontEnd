@@ -27,6 +27,7 @@ class SearchForm extends Component {
                 this.setState({receivedResponse: Array.from(response.data)});
                 this.props.sendDataToParent(Array.from(response.data));
                 this.setState({redirect: true});
+                console.log("searchform : " + response.data);
             })
     };
 

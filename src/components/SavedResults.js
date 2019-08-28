@@ -27,7 +27,7 @@ class SavedResults extends Component {
                             <Card.Title className="card-title">{data.eventName}</Card.Title>
                             <Card.Text className="card-text">{data.date} {data.time}</Card.Text>
                             <Rating onClick={(rate) => this.saveRating(data, rate)}/>
-                            <Card.Text value={data.averagerating}>Be the first to rate!</Card.Text>
+                            <Card.Text >{data.averagerating}</Card.Text>
                         </Card.Body>
                     </Card>
                 ))}

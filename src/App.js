@@ -19,7 +19,7 @@ class App extends Component {
 
 
     render() {
-
+        console.log("App : " + this.state.datas);
         return (
             <Router>
                 <div className="app">
