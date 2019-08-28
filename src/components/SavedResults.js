@@ -6,14 +6,13 @@ import Rating from "react-rating";
 import axios from "axios";
 
 
-
 class SavedResults extends Component {
     state = {
         rating: 0
     };
 
     saveRating = (data, rate) => {
-        console.log( " and the rate: " + rate);
+        console.log(" and the rate: " + rate);
         axios.post(`http://localhost:8080/saverating/`, {rating: rate, eventEntityId: data.id});
     };
 
@@ -26,9 +25,10 @@ class SavedResults extends Component {
                         <Card.Body className="card-body">
                             <Card.Title className="card-title">{data.eventName}</Card.Title>
                             <Card.Text className="card-text">{data.date} {data.time}</Card.Text>
-                            <Rating onClick={(rate) => this.saveRating(data, rate)} placeholderRating={data.averagerating}/>
-                            <Card.Text>{data.averagerating}</Card.Text>
+                            <Rating onClick={(rate) => this.saveRating(data, rate)}
+                                    placeholderRating={data.averagerating}/>
                         </Card.Body>
+                        <Card.Footer className="text-muted text-center">{data.averagerating}</Card.Footer>
                     </Card>
                 ))}
             </div>
