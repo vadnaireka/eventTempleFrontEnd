@@ -18,7 +18,7 @@ class Welcome extends Component {
                         a large consumer audience looking for one place to go to find out what’s on.</h5>
                 </Container>
                 <Container className="imageContainer">
-                    <Row>
+                    <Row className="row">
                         <div className="col-xs-6 col-md-4">
                             <Image className="profilePicture" src="/images/reka.jpg" roundedCircle/>
                             <h6>Réka</h6>

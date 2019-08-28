@@ -50,6 +50,7 @@ h6 {
     text-align: center;
     font-family: "DejaVu Sans";
     padding-left: 15px;
+    padding-top: auto;
 }
 
 .header {
@@ -97,11 +98,11 @@ h6 {
 .homeText {
     text-align: center;
 }
-/*
+
 .imageContainer {
-    line-height: 300px;
-    height: 300px;
-    border: 3px solid #61dafb;
-    margin: 0 auto;
+    width: 100%;
 }
- */
+
+.row{
+    width: 100%;
+}
