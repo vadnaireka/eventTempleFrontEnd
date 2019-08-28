@@ -19,7 +19,7 @@ class Welcome extends Component {
                 </Container>
                 <Container className="imageContainer">
                     <Row className="row">
-                        <div className="col-xs-6 col-md-4">
+                        <div className="col-xs-6 col-md-4 pictureBorder">
                             <Image className="profilePicture" src="/images/reka.jpg" roundedCircle/>
                             <h6>Réka</h6>
                         </div>
