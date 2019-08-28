@@ -5,7 +5,6 @@ import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 import * as PropTypes from "prop-types";
 import '../App.css';
-import SearchForm from "./SearchForm";
 import Rating from "react-rating";
 
 
@@ -38,8 +37,7 @@ class EventCard extends Component {
                 <Card.Text className="card-text">{this.props.data.eventEntity.date} {this.props.data.eventEntity.time}</Card.Text>
                 <Button className="btn" variant="primary"
                         onClick={() => this.saveToDB(this.props.data)}>{this.state.button}</Button>
-                <Rating onClick={(rate) => this.saveRating(this.props.data, rate)}/>
-                <Card.Text className="card-text">{this.props.data.averageRating}</Card.Text>
+                <Rating onClick={(rate) => this.saveRating(this.props.data, rate)} placeholderRating={this.props.data.averageRating}/>
             </Card.Body>
         </Card>;
     }
