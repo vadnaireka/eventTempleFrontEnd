@@ -23,14 +23,8 @@ class SearchForm extends Component {
     onSubmit = (e) => {
         this.setState({redirect: false});
         e.preventDefault();
-        axios.get(`http://localhost:8080/search/${this.state.city}/${this.state.startDate}/${this.state.endDate}/${this.state.keyword}/`)
-            .then(response => {
-                this.setState({receivedResponse: Array.from(response.data)});
-                this.props.sendDataToParent(Array.from(response.data));
-                this.context.saveAllData(response.data);
-                this.setState({redirect: true});
-                console.log("searchform : " + response.data);
-            })
+        this.context.fetchData(`http://localhost:8080/search/${this.state.city}/${this.state.startDate}/${this.state.endDate}/${this.state.keyword}/`, "alldata");
+        this.setState({redirect: true});
     };
 
     renderRedirect = () => {
