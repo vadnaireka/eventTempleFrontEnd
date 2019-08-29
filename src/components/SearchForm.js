@@ -23,7 +23,7 @@ class SearchForm extends Component {
     onSubmit = (e) => {
         this.setState({redirect: false});
         e.preventDefault();
-        this.context.fetchData(`http://localhost:8080/search/${this.state.city}/${this.state.startDate}/${this.state.endDate}/${this.state.keyword}/`, "alldata");
+        this.context.fetchData(`http://localhost:8080/search/${this.state.city}/${this.state.startDate}/${this.state.endDate}/${this.state.keyword}/`, "searchdata");
         this.setState({redirect: true});
     };
 

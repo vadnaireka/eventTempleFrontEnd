@@ -4,6 +4,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '../App.css';
 import Rating from "react-rating";
 import axios from "axios";
+import context from "../DataProvider";
+import Cards from "./Cards";
+
 
 
 class SavedResults extends Component {
@@ -18,20 +21,19 @@ class SavedResults extends Component {
 
     render() {
         return (
-            <div className="mycontainer">
-                {this.props.savedDatas.map((data) => (
-                    <Card className="float-left row-sm eventcard" style={{width: "18rem"}}>
-                        <Card.Img className="card-image" variant="top" src={data.imageLink}/>
-                        <Card.Body className="card-body">
-                            <Card.Title className="card-title">{data.eventName}</Card.Title>
-                            <Card.Text className="card-text">{data.date} {data.time}</Card.Text>
-                            <Rating onClick={(rate) => this.saveRating(data, rate)} placeholderRating={data.averagerating}/>
-                        </Card.Body>
-                    </Card>
-                ))}
-            </div>
+            <context.Consumer>
+                {({saveddata}) => (
+                <div className="mycontainer">
+                    {saveddata.map((data) => (
+                        <Cards data={data}/>
+                    ))}
+                </div>
+                )}
+            </context.Consumer>
         )
     }
 }
+
+SavedResults.contextType = context;
 
 export default SavedResults;

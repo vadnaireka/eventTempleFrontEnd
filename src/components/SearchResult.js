@@ -7,14 +7,51 @@ import * as PropTypes from "prop-types";
 import '../App.css';
 import Rating from "react-rating";
 import context from "../DataProvider";
+import CardsofSearchResult from "./CardsofSearchResult.js";
 
 
-class EventCard extends Component {
+// class EventCard extends Component {
+//
+//     state = {
+//         button: "Save",
+//         rating: 0
+//     };
+
+
+//
+//     saveRating = (data, rate) => {
+//         console.log( " and the rate: " + rate);
+//         axios.post(`http://localhost:8080/saverating/`, {rating: rate, eventEntityId: data.id});
+//     };
+//
+//
+//     render() {
+//         return <Card className="float-left row-sm eventcard" style={{width: "18rem"}}>
+//                 <Card.Img variant="top" className="card-image" src={this.props.data.eventEntity.imageLink}/>
+//                     <Card.Body>
+//                         <Card.Title className="card-title">{this.props.data.eventEntity.eventName}</Card.Title>
+//                         <Card.Text className="card-text">{this.props.data.eventEntity.date} {this.props.data.eventEntity.time}</Card.Text>
+//                         <Button className="btn" variant="primary"
+//                                 onClick={() => this.saveToDB(this.props.data)}>{this.state.button}</Button>
+//                         <Rating onClick={(rate) => this.saveRating(this.props.data, rate)} placeholderRating={this.props.data.averageRating}/>
+//                     </Card.Body>
+//                 </Card>
+//     }
+// }
+//
+// EventCard.propTypes = {
+//     data: PropTypes.any,
+//     onClick: PropTypes.func,
+//     button: PropTypes.string
+// };
+
+class SearchResult extends Component {
 
     state = {
-        button: "Save",
-        rating: 0
+        datas: [],
+        button: "Save"
     };
+
 
     saveToDB = (data) => {
         console.log(data.id);
@@ -24,51 +61,17 @@ class EventCard extends Component {
         this.setState({button: "Saved"})
     };
 
-    saveRating = (data, rate) => {
-        console.log( " and the rate: " + rate);
-        axios.post(`http://localhost:8080/saverating/`, {rating: rate, eventEntityId: data.id});
-    };
-
-
-    render() {
-        return <Card className="float-left row-sm eventcard" style={{width: "18rem"}}>
-                <Card.Img variant="top" className="card-image" src={this.props.data.eventEntity.imageLink}/>
-                    <Card.Body>
-                        <Card.Title className="card-title">{this.props.data.eventEntity.eventName}</Card.Title>
-                        <Card.Text className="card-text">{this.props.data.eventEntity.date} {this.props.data.eventEntity.time}</Card.Text>
-                        <Button className="btn" variant="primary"
-                                onClick={() => this.saveToDB(this.props.data)}>{this.state.button}</Button>
-                        <Rating onClick={(rate) => this.saveRating(this.props.data, rate)} placeholderRating={this.props.data.averageRating}/>
-                    </Card.Body>
-                </Card>
-    }
-}
-
-EventCard.propTypes = {
-    data: PropTypes.any,
-    onClick: PropTypes.func,
-    button: PropTypes.string
-};
-
-class SearchResult extends Component {
-
-    state = {
-        datas: [],
-        button: "Save"
-    }
-
     receivingData = (dataFromChild) => this.setState({datas: dataFromChild});
 
-
     render() {
-        console.log("searchresult : " + this.props.datas);
+
         return (
             <context.Consumer>
-                {({alldata}) => (
-                    <div className="searchresult">
-                        {/*<SearchForm sendDataToParent={this.receivingData}/>*/}
-                        {alldata.map((data) => (
-                            <EventCard data={data} onClick={() => this.saveToDB(data)}/>
+                {({searchdata}) => (
+                    <div className="mycontainer">
+                        {console.log("searchresultdata: "+ searchdata)}
+                        {searchdata.map((data) => (
+                            <CardsofSearchResult data={data}/>
                         ))}
                     </div>
                 )}
@@ -76,5 +79,5 @@ class SearchResult extends Component {
         )
     }
 }
-
+SearchResult.contextType = context;
 export default SearchResult;

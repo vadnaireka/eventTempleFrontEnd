@@ -36,7 +36,7 @@ class App extends Component {
                             <Welcome/>
                         )}/>
                         <Route path="/search" render={props => (
-                            <SearchResult datas={this.state.datas}/>
+                            <SearchResult/>
                         )}/>
                         <Route path="/saved" render={props => (
                             <SavedResults savedDatas={this.state.savedDatas}/>

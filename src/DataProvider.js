@@ -3,6 +3,8 @@ import axios from "axios";
 
 const context = React.createContext({
     alldata: [],
+    searchdata: [],
+    saveddata: [],
     fetchData: () => {},
     user : null,
     setUser: () => {}
@@ -11,13 +13,14 @@ const context = React.createContext({
 export class DataProvider extends Component {
     state = {
         alldata: [],
+        searchdata: [],
+        saveddata: [],
         fetchData: (url, stateName) => {
             axios.get(url)
                 .then(response => {
                     this.setState({[stateName]: Array.from(response.data)});
-                    console.log("searchform : " + response.data);
                 });
-        }
+            }
     };
 
     render(){

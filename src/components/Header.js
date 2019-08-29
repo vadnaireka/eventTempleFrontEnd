@@ -5,6 +5,8 @@ import Button from "react-bootstrap/Button";
 import {Redirect} from 'react-router-dom';
 import axios from "axios";
 import '../App.css';
+import context from "../DataProvider";
+import SearchResult from "./SearchResult";
 
 
 class Header extends Component {
@@ -14,10 +16,7 @@ class Header extends Component {
     };
 
     componentDidMount = () => {
-        axios.get(`http://localhost:8080/saved/`)
-            .then(response => {
-                this.props.sendDataToParent(Array.from(response.data));
-            })
+        this.context.fetchData(`http://localhost:8080/saved/`, "saveddata");
     };
 
     redirectToSaved = () => {
@@ -55,5 +54,5 @@ class Header extends Component {
         )
     }
 }
-
+Header.contextType = context;
 export default Header;
