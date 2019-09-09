@@ -11,11 +11,16 @@ class Login extends Component {
 
     onChange = (e) =>{
         this.setState({[e.target.name] : e.target.value})
-    }
+    };
 
     onSubmit = (e) => {
-        axios.post(`http://localhost:8080/validation/`, {userName: this.state.username , password: this.state.password})
-    }
+        e.preventDefault();
+        axios.post(`http://localhost:8080/validation/login`, {
+            userName: this.state.username,
+            password: this.state.password
+        });
+
+    };
 
     render() {
         return (
