@@ -7,6 +7,7 @@ import SearchResult from "./components/SearchResult";
 import SavedResults from "./components/SavedResults";
 import Welcome from "./components/Welcome";
 import {DataProvider} from "./DataProvider";
+import Login from "./components/Login";
 
 class App extends Component {
     state = {
@@ -29,6 +30,7 @@ class App extends Component {
                 <Router>
                     <div className="app">
                         <Header sendDataToParent={this.receivedSavedData}/>
+                        <Login/>
                         <Route path="/searchform" render={props => (
                             <SearchForm sendDataToParent={this.receivingData}/>
                         )}/>
