@@ -15,12 +15,10 @@ class Login extends Component {
 
     onSubmit = (e) => {
         e.preventDefault();
-        axios.post(`http://localhost:8080/validation/${this.props.auth}`, {
+        axios.post(`http://localhost:8080/validation/registration`, {
             userName: this.state.username,
             password: this.state.password
-        }).then(
-            this.context.fetchData(`http://localhost:8080/validation/${this.props.auth}`, "userdata")
-        );
+        });
 
     };
 
@@ -28,15 +26,15 @@ class Login extends Component {
         return (
             //<context.Consumer>
                 <form className="login-form" onSubmit={this.onSubmit}>
-                    <input className="auth-input" type="text" name="username" onChange={this.onChange} value={this.state.username} placeholder="User Name"/>
-                    <input className="auth-input" type="password" name="password" onChange={this.onChange} value={this.state.password} placeholder="Password"/>
-                    <input type="submit"  value={this.props.auth}/>
+                    <input type="text" name="username" onChange={this.onChange} value={this.state.username} placeholder="User Name"/>
+                    <input type="text" name="password" onChange={this.onChange} value={this.state.password} placeholder="Password"/>
+                    <input type="submit" value="Submit"/>
                 </form>
             //</context.Consumer>
         )
     }
 }
 
-Login.contextType = context;
+//Login.contextType = context;
 
 export default Login;

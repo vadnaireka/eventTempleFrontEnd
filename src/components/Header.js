@@ -15,8 +15,8 @@ class Header extends Component {
         redirect: false,
     };
 
-    componentDidMount = () => {
-        this.context.fetchData(`http://localhost:8080/saved/`, "saveddata");
+    loadSavedEvents = () => {
+        this.context.fetchData(`http://localhost:8080/saveddddddddd/`, "saveddata");
     };
 
     redirectToSaved = () => {
@@ -42,7 +42,7 @@ class Header extends Component {
                     <Button className="btn gomb  d-flex justify-content-center" variant="outline-info"
                             onClick={(event) => {
                                 this.redirectToSaved();
-                                this.componentDidMount();
+                                this.loadSavedEvents();
                             }}>My Saved Events</Button>
                     <Button className="btn gomb  d-flex justify-content-center" variant="outline-info"
                             href="http://localhost:3000/searchform">Search for Events</Button>

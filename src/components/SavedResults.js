@@ -8,7 +8,6 @@ import context from "../DataProvider";
 import Cards from "./Cards";
 
 
-
 class SavedResults extends Component {
     state = {
         rating: 0
@@ -22,8 +21,10 @@ class SavedResults extends Component {
     render() {
         return (
             <context.Consumer>
-                {({saveddata}) => (
+                {({saveddata, errors}) => (
+
                 <div className="mycontainer">
+
                     {saveddata.map((data) => (
                         <Cards data={data}/>
                     ))}

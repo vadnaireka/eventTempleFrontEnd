@@ -30,7 +30,11 @@ class App extends Component {
                 <Router>
                     <div className="app">
                         <Header sendDataToParent={this.receivedSavedData}/>
-                        <Login/>
+                        <Route path="/login" render={props => (
+                            <Login auth="login"/>
+                        )}/><Route path="/registration" render={props => (
+                            <Login auth="registration"/>
+                        )}/>
                         <Route path="/searchform" render={props => (
                             <SearchForm sendDataToParent={this.receivingData}/>
                         )}/>
