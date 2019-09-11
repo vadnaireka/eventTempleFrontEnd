@@ -1,12 +1,15 @@
 import React, {Component} from "react";
 import context from "../DataProvider";
 import axios from "axios";
+import {Redirect} from 'react-router-dom';
+
 
 
 class Login extends Component {
     state = {
         username: "",
-        password: ""
+        password: "",
+        redirect: false
     };
 
     onChange = (e) => {
@@ -19,9 +22,16 @@ class Login extends Component {
             username: this.state.username,
             password: this.state.password
         }).then(response => {
-            localStorage.set("token", response.data.token)
+            localStorage.setItem('token', response.data.token)
             }
-        )
+        );
+        this.setState({redirect: true});
+    };
+
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to="/"/>
+        }
     };
 
 
@@ -29,6 +39,7 @@ class Login extends Component {
         return (
             //<context.Consumer>
             <div className="loginpage">
+                {this.renderRedirect()}
                 <h4 className="loginheader">{this.props.header}</h4>
                 <form className="login-form" onSubmit={this.onSubmit}>
                     <input className="auth-input" type="text" name="username" onChange={this.onChange}

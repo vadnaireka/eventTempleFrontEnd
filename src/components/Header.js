@@ -17,9 +17,11 @@ class Header extends Component {
     };
 
     loadSavedEvents = () => {
-        this.context.fetchData(`http://localhost:8080/saved/`, "saveddata", () => {
-            this.context.saveddata.length > 0 ? this.redirectToSaved("/saved") : this.redirectToSaved("/login")
-        });
+        if (localStorage.getItem("token") === null){
+            this.redirectToSaved("/login")
+        } else{
+        this.context.fetchData(`http://localhost:8080/saved/`, "saveddata")
+        }
     };
 
     redirectToSaved = (url) => {

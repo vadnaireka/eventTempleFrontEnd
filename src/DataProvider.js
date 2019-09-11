@@ -21,7 +21,7 @@ export class DataProvider extends Component {
         saveddata: [],
         userdata: [],
         errors :[],
-        fetchData: (url, stateName, cb) => {
+        fetchData: (url, stateName) => {
             console.log("token: " +this.state.userdata.token);
             axios.get(url, {
                 headers: {
@@ -29,9 +29,6 @@ export class DataProvider extends Component {
                 }})
                 .then(response => {
                     this.setState({[stateName]: Array.from(response.data)});
-                    if (cb !== null){
-                        cb();
-                    }
                 }).catch(reason => {
                     console.log(reason);
                     this.setState({"errors":[reason]})
