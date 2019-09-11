@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="05f266f0-7aa4-4836-8b21-a2dd1d8475ef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataProvider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataProvider.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -109,6 +108,7 @@
       <workItem from="1566979369217" duration="12781000" />
       <workItem from="1568026673315" duration="4784000" />
       <workItem from="1568112315076" duration="21974000" />
+      <workItem from="1568203021183" duration="512000" />
     </task>
     <task id="LOCAL-00001" summary="context - fetch method">
       <created>1567090968151</created>
@@ -117,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567090968151</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="token support added">
+      <created>1568202974407</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1568202974407</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,7 +145,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="context - fetch method" />
-    <option name="LAST_COMMIT_MESSAGE" value="context - fetch method" />
+    <MESSAGE value="token support added" />
+    <option name="LAST_COMMIT_MESSAGE" value="token support added" />
   </component>
   <component name="masterDetails">
     <states>

@@ -19,7 +19,7 @@ class Login extends Component {
             username: this.state.username,
             password: this.state.password
         }).then(response => {
-            localStorage.set("token", response.data.token)
+            localStorage.setItem('token', response.data.token)
             }
         )
     };
