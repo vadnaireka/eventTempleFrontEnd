@@ -22,6 +22,7 @@ export class DataProvider extends Component {
         userdata: [],
         errors :[],
         fetchData: (url, stateName, cb) => {
+            console.log("token: " +this.state.userdata.token);
             axios.get(url, {
                 headers: {
                     Authorization: 'Bearer ' + this.state.userdata.token //the token is a variable which holds the token
