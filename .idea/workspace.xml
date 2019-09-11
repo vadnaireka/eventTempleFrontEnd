@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="05f266f0-7aa4-4836-8b21-a2dd1d8475ef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataProvider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataProvider.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SavedResults.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SavedResults.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SearchResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchResult.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +110,7 @@
       <workItem from="1566978362348" duration="869000" />
       <workItem from="1566979369217" duration="12781000" />
       <workItem from="1568026673315" duration="4784000" />
-      <workItem from="1568112315076" duration="13703000" />
+      <workItem from="1568112315076" duration="21974000" />
     </task>
     <task id="LOCAL-00001" summary="context - fetch method">
       <created>1567090968151</created>

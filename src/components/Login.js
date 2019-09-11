@@ -16,7 +16,7 @@ class Login extends Component {
     onSubmit = (e) => {
         e.preventDefault();
         axios.post(`http://localhost:8080/validation/${this.props.auth}`, {
-            userName: this.state.username,
+            username: this.state.username,
             password: this.state.password
         }).then(
             this.context.fetchData(`http://localhost:8080/validation/${this.props.auth}`, "userdata")
@@ -27,11 +27,14 @@ class Login extends Component {
     render() {
         return (
             //<context.Consumer>
+            <div className="loginpage">
+                <h4 className="loginheader">{this.props.header}</h4>
                 <form className="login-form" onSubmit={this.onSubmit}>
-                    <input className="auth-input" type="text" name="username" onChange={this.onChange} value={this.state.username} placeholder="User Name"/>
-                    <input className="auth-input" type="password" name="password" onChange={this.onChange} value={this.state.password} placeholder="Password"/>
+                    <input className="auth-input" type="text" name="username" onChange={this.onChange} value={this.state.username} placeholder="User Name"/><br/>
+                    <input className="auth-input" type="password" name="password" onChange={this.onChange} value={this.state.password} placeholder="Password"/><br/>
                     <input type="submit"  value={this.props.auth}/>
                 </form>
+            </div>
             //</context.Consumer>
         )
     }

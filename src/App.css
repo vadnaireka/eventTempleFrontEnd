@@ -17,6 +17,14 @@
     height: 60px;
 }
 
+.navbar{
+    background: #282c34;
+    padding-bottom: 0px;
+}
+#loginbtn{
+
+}
+
 .card-text {
 
 }
@@ -27,13 +35,41 @@
     margin-right: 7px;
 }
 
+.pagebtn{
+    padding-top: 5px;
+}
+
+.loginpage{
+    text-align: center;
+    background: rgba(97, 218, 251, 0.21);;
+    display: table;
+    padding: 40px;
+    border-radius: 4px;
+    position: relative;
+    margin: auto;
+}
+
+.auth-input{
+    margin: 10px;
+}
+
+h4{
+    color:#61dafb;
+}
+
+.sepline{
+    height: 1px;
+    color: #61dafb;
+    margin-bottom: 10px;
+}
+
 h1 {
     color: #61dafb;
     text-align: center;
-    padding-top: 30px;
+    padding-top: 0px;
     font-family: "DejaVu Sans"  ;
     background-color: #282c34;
-    padding-bottom: 15px;
+    padding-bottom: 20px;
     font-size: 65px;
 }
 
@@ -57,12 +93,18 @@ h6 {
     background-color: #61dafb;
     height: 100px;
     text-align: center;
+    height: auto;
 }
 
+.placeholder{
+    height: 8px;
+    background-color: #61dafb;
+}
 
 .gomb {
     margin: 10px;
     border-radius: 0.5px;
+    padding: 0px;
 
 }
 

@@ -29,9 +29,9 @@ class App extends Component {
                     <div className="app">
                         <Header sendDataToParent={this.receivedSavedData}/>
                         <Route path="/login" render={props => (
-                            <Login auth="login"/>
+                            <Login auth="login" header="Please log in!" footer="If you don't have account yet, click here!"/>
                         )}/><Route path="/registration" render={props => (
-                            <Login auth="registration"/>
+                            <Login auth="registration" header="Please register!" footer=""/>
                         )}/>
                         <Route path="/searchform" render={props => (
                             <SearchForm sendDataToParent={this.receivingData}/>
