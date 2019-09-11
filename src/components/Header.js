@@ -13,20 +13,24 @@ class Header extends Component {
 
     state = {
         redirect: false,
+        url:""
     };
 
     loadSavedEvents = () => {
-        this.context.fetchData(`http://localhost:8080/saveddddddddd/`, "saveddata");
+        this.context.fetchData(`http://localhost:8080/saved/`, "saveddata", () => {
+            this.context.saveddata.length > 0 ? this.redirectToSaved("/saved") : this.redirectToSaved("/login")
+        });
     };
 
-    redirectToSaved = () => {
+    redirectToSaved = (url) => {
+        this.setState({url:url})
         this.setState({redirect: true});
     };
 
     renderRedirect = () => {
         if (this.state.redirect) {
             this.setState({redirect: false});
-            return <Redirect to="/saved"/>
+            return <Redirect to={this.state.url}/>
         }
     };
 
@@ -41,8 +45,8 @@ class Header extends Component {
                 <div className="d-flex justify-content-center">
                     <Button className="btn gomb  d-flex justify-content-center" variant="outline-info"
                             onClick={(event) => {
-                                this.redirectToSaved();
                                 this.loadSavedEvents();
+                               // this.redirectToSaved();
                             }}>My Saved Events</Button>
                     <Button className="btn gomb  d-flex justify-content-center" variant="outline-info"
                             href="http://localhost:3000/searchform">Search for Events</Button>
@@ -54,5 +58,6 @@ class Header extends Component {
         )
     }
 }
+
 Header.contextType = context;
 export default Header;

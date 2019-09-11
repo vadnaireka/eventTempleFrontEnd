@@ -16,7 +16,6 @@ class App extends Component {
     };
 
     receivingData = (dataFromChild) => {
-        console.log(dataFromChild);
         this.setState({datas: dataFromChild})
     };
 
@@ -24,7 +23,6 @@ class App extends Component {
 
 
     render() {
-        console.log("App : " + this.state.datas);
         return (
             <DataProvider>
                 <Router>

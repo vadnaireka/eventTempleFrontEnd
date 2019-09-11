@@ -14,7 +14,6 @@ class SavedResults extends Component {
     };
 
     saveRating = (data, rate) => {
-        console.log( " and the rate: " + rate);
         axios.post(`http://localhost:8080/saverating/`, {rating: rate, eventEntityId: data.id});
     };
 
@@ -22,9 +21,7 @@ class SavedResults extends Component {
         return (
             <context.Consumer>
                 {({saveddata, errors}) => (
-
                 <div className="mycontainer">
-
                     {saveddata.map((data) => (
                         <Cards data={data}/>
                     ))}

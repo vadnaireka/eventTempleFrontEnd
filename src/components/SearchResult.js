@@ -20,7 +20,6 @@ import CardsofSearchResult from "./CardsofSearchResult.js";
 
 //
 //     saveRating = (data, rate) => {
-//         console.log( " and the rate: " + rate);
 //         axios.post(`http://localhost:8080/saverating/`, {rating: rate, eventEntityId: data.id});
 //     };
 //
@@ -54,7 +53,6 @@ class SearchResult extends Component {
 
 
     saveToDB = (data) => {
-        console.log(data.id);
         axios.post(`http://localhost:8080/save/`, {
             eventEntity: data.id
         });
@@ -69,7 +67,6 @@ class SearchResult extends Component {
             <context.Consumer>
                 {({searchdata}) => (
                     <div className="mycontainer">
-                        {console.log("searchresultdata: "+ searchdata)}
                         {searchdata.map((data) => (
                             <CardsofSearchResult data={data}/>
                         ))}
