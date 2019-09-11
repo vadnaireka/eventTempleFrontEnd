@@ -25,7 +25,7 @@ export class DataProvider extends Component {
             console.log("token: " +this.state.userdata.token);
             axios.get(url, {
                 headers: {
-                    Authorization: 'Bearer ' + this.state.userdata.token //the token is a variable which holds the token
+                    Authorization: "Bearer " + localStorage.getItem("token") //the token is a variable which holds the token
                 }})
                 .then(response => {
                     this.setState({[stateName]: Array.from(response.data)});
