@@ -22,7 +22,9 @@ class Login extends Component {
             username: this.state.username,
             password: this.state.password
         }).then(response => {
-            localStorage.setItem('token', response.data.token)
+            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('name', response.data.username);
+
             }
         );
         this.setState({redirect: true});
@@ -48,6 +50,7 @@ class Login extends Component {
                            value={this.state.password} placeholder="Password"/><br/>
                     <input type="submit" value={this.props.auth}/>
                 </form>
+                <p className="loginfooter"><a className="link" href="/registration"> {this.props.footer}</a></p>
             </div>
             //</context.Consumer>
         )

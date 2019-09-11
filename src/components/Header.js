@@ -21,11 +21,12 @@ class Header extends Component {
             this.redirectToSaved("/login")
         } else{
         this.context.fetchData(`http://localhost:8080/saved/`, "saveddata")
+            this.redirectToSaved("/saved")
         }
     };
 
     redirectToSaved = (url) => {
-        this.setState({url:url})
+        this.setState({url:url});
         this.setState({redirect: true});
     };
 
