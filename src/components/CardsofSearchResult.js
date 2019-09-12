@@ -1,7 +1,6 @@
 import Card from "react-bootstrap/Card";
 import Rating from "react-rating";
 import React, {Component} from "react";
-import context from "../DataProvider";
 import axios from "axios";
 import {Button} from "react-bootstrap";
 
