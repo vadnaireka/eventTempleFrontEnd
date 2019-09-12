@@ -10,6 +10,7 @@ import SearchResult from "./SearchResult";
 import AuthenticationNavBar from "./AuthenticationNavBar";
 import {number} from "prop-types";
 import Greeting from "./Greeting";
+import Title from "./Title";
 
 
 class Header extends Component {
@@ -83,9 +84,7 @@ class Header extends Component {
                 {this.renderRedirect()}
                 <div className="header">
                     {this.greetingUser()}
-                    {/*<AuthenticationNavBar/>*/}
-                    <h1>Event Temple</h1>
-                    <div className="sepline"></div>
+                    <Title/>
                 </div>
                 <div className="d-flex justify-content-center pagebtn">
                     <Button className="btn gomb  d-flex justify-content-center" variant="outline-info"
