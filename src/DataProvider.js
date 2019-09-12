@@ -9,7 +9,7 @@ const context = React.createContext({
     fetchData: (url, stateName) => {},
     errors :[],
     user : null,
-    setUser: () => {}
+    setUser: (username) => {}
 });
 
 

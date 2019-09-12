@@ -35,6 +35,15 @@ class Header extends Component {
         this.setState({redirect: true});
     };
 
+    redirectTOSearchform = () => {
+        this.setState({url:"/searchform"});
+        this.setState({redirect: true});
+    };
+
+    redirectTOAbout= () => {
+        this.setState({url:"/about"});
+        this.setState({redirect: true});
+    }
 
     renderRedirect = () => {
         if (this.state.redirect) {
@@ -68,13 +77,15 @@ class Header extends Component {
             return <AuthenticationNavBar/>
         } else {
             if (Date.now() >= this.expirationdata*1000){
-                localStorage.clear();
+                localStorage.removeItem("token");
                 return <AuthenticationNavBar/>
             } else {
-             return <Greeting/>
+                return <Greeting/>
             }
         }
     };
+
+
 
     render() {
         return (
@@ -91,9 +102,9 @@ class Header extends Component {
                                // this.redirectToSaved();
                             }}>My Saved Events</Button>
                     <Button className="btn gomb  d-flex justify-content-center" variant="outline-info"
-                            href="http://localhost:3000/searchform">Search for Events</Button>
+                            onClick={this.redirectTOSearchform}>Search for Events</Button>
                     <Button className="btn gomb d-flex justify-content-center" variant="outline-info"
-                            href="http://localhost:3000/about">About</Button>
+                            onClick={this.redirectTOAbout}>About</Button>
                 </div>
             </div>
 
