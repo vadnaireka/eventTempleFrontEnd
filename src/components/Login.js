@@ -23,7 +23,7 @@ class Login extends Component {
             password: this.state.password
         }).then(response => {
             localStorage.setItem('token', response.data.token);
-            // localStorage.setItem('name', response.data.username);
+            console.log(localStorage.getItem("token"));
             this.context.setUser(response.data.username)
             }
         );

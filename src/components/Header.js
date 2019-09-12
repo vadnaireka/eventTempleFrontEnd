@@ -64,7 +64,7 @@ class Header extends Component {
     expirationdata = this.tokenPayload.exp;
 
     greetingUser = () => {
-        if (localStorage.getItem("token") === null){
+        if (localStorage.getItem("token") === null || localStorage.getItem("token") === "undefined"){
             return <AuthenticationNavBar/>
         } else {
             if (Date.now() >= this.expirationdata*1000){
