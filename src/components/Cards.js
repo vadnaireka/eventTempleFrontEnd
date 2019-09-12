@@ -8,8 +8,7 @@ import {Button} from "react-bootstrap";
 
 class Cards extends Component {
 
-<<<<<<< HEAD
-=======
+
     deleteFromDB = (data) => {
         console.log(data);
         axios.post(`http://localhost:8080/deleteSavedEvent/`, {data: data}, {
@@ -18,7 +17,7 @@ class Cards extends Component {
             }})
         ;
     };
->>>>>>> 510e5f75c53b493bf6e0e40af3301c3784250b3e
+
 
     saveRating = (data, rate) => {
         console.log(" and the rate: " + rate);
