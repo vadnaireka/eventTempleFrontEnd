@@ -1,11 +1,6 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import axios from 'axios';
-import * as PropTypes from "prop-types";
 import '../App.css';
-import Rating from "react-rating";
 import context from "../DataProvider";
 import CardsofSearchResult from "./CardsofSearchResult.js";
 
@@ -51,8 +46,11 @@ class SearchResult extends Component {
         button: "Save"
     };
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 510e5f75c53b493bf6e0e40af3301c3784250b3e
     receivingData = (dataFromChild) => this.setState({datas: dataFromChild});
 
     render() {
