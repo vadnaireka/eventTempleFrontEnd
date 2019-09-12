@@ -39,6 +39,14 @@
     padding-top: 5px;
 }
 
+.link {
+    color: #61dafb;
+}
+.loginfooter{
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+
 .loginpage{
     text-align: center;
     background: rgba(97, 218, 251, 0.21);;
@@ -47,6 +55,7 @@
     border-radius: 4px;
     position: relative;
     margin: auto;
+    margin-top: 20px;
 }
 
 .auth-input{

@@ -18,7 +18,7 @@ class SavedResults extends Component {
     render() {
         return (
             <context.Consumer>
-                {({saveddata, errors}) => (
+                {({saveddata}) => (
                 <div className="mycontainer">
                     {saveddata.map((data) => (
                         <Cards data={data}/>

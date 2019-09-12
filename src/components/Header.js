@@ -7,6 +7,10 @@ import axios from "axios";
 import '../App.css';
 import context from "../DataProvider";
 import SearchResult from "./SearchResult";
+import AuthenticationNavBar from "./AuthenticationNavBar";
+import {number} from "prop-types";
+import Greeting from "./Greeting";
+import Title from "./Title";
 
 
 class Header extends Component {
@@ -14,28 +18,23 @@ class Header extends Component {
     state = {
         redirect: false,
         url:""
+
     };
 
     loadSavedEvents = () => {
-        this.context.fetchData(`http://localhost:8080/saved/`, "saveddata", () => {
-            this.context.saveddata.length > 0 ? this.redirectToSaved("/saved") : this.redirectToSaved("/login")
-        });
+        if (localStorage.getItem("token") === null){
+            this.redirectToUrl("/login")
+        } else{
+        this.context.fetchData(`http://localhost:8080/saved/`, "saveddata");
+            this.redirectToUrl("/saved")
+        }
     };
 
-    redirectToSaved = (url) => {
-        this.setState({url:url})
+    redirectToUrl = (url) => {
+        this.setState({url:url});
         this.setState({redirect: true});
     };
 
-    redirectToLogin = () => {
-        this.setState({url:"/login"});
-        this.setState({redirect: true});
-    };
-
-    redirectToRegistration = () => {
-        this.setState({url:"/registration"});
-        this.setState({redirect: true});
-    };
 
     renderRedirect = () => {
         if (this.state.redirect) {
@@ -44,20 +43,46 @@ class Header extends Component {
         }
     };
 
+    parseJwt = (token) => {
+        let base64Url = token.split('.')[1];
+        let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        let jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+
+        return JSON.parse(jsonPayload);
+    };
+
+    tokenPayload = () => {
+        if (localStorage.getItem("token") !== null){
+        this.parseJwt(localStorage.getItem("token"));
+        } else {
+            return null
+        }
+    };
+
+    expirationdata = this.tokenPayload.exp;
+
+    greetingUser = () => {
+        if (localStorage.getItem("token") === null){
+            return <AuthenticationNavBar/>
+        } else {
+            if (Date.now() >= this.expirationdata*1000){
+                localStorage.clear();
+                return <AuthenticationNavBar/>
+            } else {
+             return <Greeting/>
+            }
+        }
+    };
 
     render() {
         return (
             <div>
                 {this.renderRedirect()}
                 <div className="header">
-                    <div className="navbar">
-                    <Button className="btn gomb  d-flex justify-content-center" variant="outline-info"
-                            onClick={this.redirectToLogin}>Login</Button>
-                    <Button className="btn gomb  d-flex justify-content-center registrationbtn" variant="outline-info"
-                            onClick={this.redirectToRegistration}>Registration</Button>
-                    </div>
-                    <h1>Event Temple</h1>
-                    <div className="sepline"></div>
+                    {this.greetingUser()}
+                    <Title/>
                 </div>
                 <div className="d-flex justify-content-center pagebtn">
                     <Button className="btn gomb  d-flex justify-content-center" variant="outline-info"

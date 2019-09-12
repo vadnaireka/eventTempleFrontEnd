@@ -6,7 +6,7 @@ const context = React.createContext({
     searchdata: [],
     saveddata: [],
     userdata: [],
-    fetchData: (url, stateName, cb) => {},
+    fetchData: (url, stateName) => {},
     errors :[],
     user : null,
     setUser: () => {}
@@ -21,21 +21,21 @@ export class DataProvider extends Component {
         saveddata: [],
         userdata: [],
         errors :[],
-        fetchData: (url, stateName, cb) => {
+        fetchData: (url, stateName) => {
             axios.get(url, {
                 headers: {
                     Authorization: "Bearer " + localStorage.getItem("token") //the token is a variable which holds the token
                 }})
                 .then(response => {
                     this.setState({[stateName]: Array.from(response.data)});
-                    if (cb !== null){
-                        cb();
-                    }
                 }).catch(reason => {
                     console.log(reason);
                     this.setState({"errors":[reason]})
             })
-            }
+            },
+        setUser: (username) => {
+            this.setState({"user":[username]})
+        }
     };
 
     render(){
