@@ -23,14 +23,14 @@ class Header extends Component {
 
     loadSavedEvents = () => {
         if (localStorage.getItem("token") === null){
-            this.redirectToSaved("/login")
+            this.redirectToUrl("/login")
         } else{
         this.context.fetchData(`http://localhost:8080/saved/`, "saveddata");
-            this.redirectToSaved("/saved")
+            this.redirectToUrl("/saved")
         }
     };
 
-    redirectToSaved = (url) => {
+    redirectToUrl = (url) => {
         this.setState({url:url});
         this.setState({redirect: true});
     };
@@ -64,8 +64,6 @@ class Header extends Component {
     expirationdata = this.tokenPayload.exp;
 
     greetingUser = () => {
-        console.log(this.expirationdata);
-
         if (localStorage.getItem("token") === null){
             return <AuthenticationNavBar/>
         } else {

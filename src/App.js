@@ -27,14 +27,16 @@ class App extends Component {
             <DataProvider>
                 <Router>
                     <div className="app">
-                        <Header sendDataToParent={this.receivedSavedData}/>
+                        <Route path="/" render={props => (
+                            <Header />
+                            )}/>
                         <Route path="/login" render={props => (
                             <Login auth="login" header="Please log in!" footer="For registration, click here!"/>
                         )}/><Route path="/registration" render={props => (
                             <Login auth="Make me an account!" header="Please register!" footer="After registration, please log in!"/>
                         )}/>
                         <Route path="/searchform" render={props => (
-                            <SearchForm sendDataToParent={this.receivingData}/>
+                            <SearchForm/>
                         )}/>
                         <Route path="/about" render={props => (
                             <Welcome/>
@@ -43,7 +45,7 @@ class App extends Component {
                             <SearchResult/>
                         )}/>
                         <Route path="/saved" render={props => (
-                            <SavedResults savedDatas={this.state.savedDatas}/>
+                            <SavedResults/>
                         )}/>
                     </div>
                 </Router>

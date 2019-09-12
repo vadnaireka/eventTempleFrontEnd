@@ -32,7 +32,10 @@ export class DataProvider extends Component {
                     console.log(reason);
                     this.setState({"errors":[reason]})
             })
-            }
+            },
+        setUser: (username) => {
+            this.setState({"user":[username]})
+        }
     };
 
     render(){

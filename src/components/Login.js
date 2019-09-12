@@ -23,17 +23,23 @@ class Login extends Component {
             password: this.state.password
         }).then(response => {
             localStorage.setItem('token', response.data.token);
-            localStorage.setItem('name', response.data.username);
-
+            // localStorage.setItem('name', response.data.username);
+            this.context.setUser(response.data.username)
             }
         );
-        this.setState({redirect: true});
+        this.redirectToUrl("/about");
 
+    };
+
+    redirectToUrl = (url) => {
+        this.setState({url:url});
+        this.setState({redirect: true});
     };
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            return <Redirect to="/about"/>
+            this.setState({redirect: false});
+            return <Redirect to={this.state.url}/>
         }
     };
 
