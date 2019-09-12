@@ -5,8 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cards.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/CardsofSearchResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardsofSearchResult.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SearchResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchResult.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +111,7 @@
       <workItem from="1568112315076" duration="21974000" />
       <workItem from="1568203021183" duration="512000" />
       <workItem from="1568275211179" duration="4169000" />
-      <workItem from="1568284525335" duration="6980000" />
+      <workItem from="1568284525335" duration="7411000" />
     </task>
     <task id="LOCAL-00001" summary="context - fetch method">
       <created>1567090968151</created>

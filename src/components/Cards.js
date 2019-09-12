@@ -19,7 +19,9 @@ class Cards extends Component {
 
     saveRating = (data, rate) => {
         console.log(" and the rate: " + rate);
-        axios.post(`http://localhost:8080/saverating/`, {rating: rate, eventEntityId: data.id})
+        axios.post(`http://localhost:8080/saverating/`, {rating: rate, eventEntityId: data.id}, {headers: {
+                Authorization: "Bearer " + localStorage.getItem("token") //the token is a variable which holds the token
+            }})
         ;
     };
 
