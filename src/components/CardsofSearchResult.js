@@ -1,7 +1,6 @@
 import Card from "react-bootstrap/Card";
 import Rating from "react-rating";
 import React, {Component} from "react";
-import context from "../DataProvider";
 import axios from "axios";
 import {Button} from "react-bootstrap";
 
@@ -16,13 +15,17 @@ class Cards extends Component {
         console.log(data.id);
         axios.post(`http://localhost:8080/save/`, {
             eventEntity: data.id
-        });
+        }, {headers: {
+            Authorization: "Bearer " + localStorage.getItem("token") //the token is a variable which holds the token
+        }});
         this.setState({button: "Saved"})
     };
 
     saveRating = (data, rate) => {
         console.log( " and the rate: " + rate);
-        axios.post(`http://localhost:8080/saverating/`, {rating: rate, eventEntityId: data.id});
+        axios.post(`http://localhost:8080/saverating/`, {rating: rate, eventEntityId: data.id}, {headers: {
+                Authorization: "Bearer " + localStorage.getItem("token") //the token is a variable which holds the token
+            }});
     };
 
 

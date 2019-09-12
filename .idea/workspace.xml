@@ -3,14 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="05f266f0-7aa4-4836-8b21-a2dd1d8475ef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/src/components/Cards.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Cards.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CardsofSearchResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CardsofSearchResult.js" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/src/DataProvider.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataProvider.js" afterDir="false" />
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 037bd875ed588e4f20eaccf84d6a6cead4154791
+
       <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
->>>>>>> e9db53a7621607da98451c1355af5b281417bab7
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,7 +51,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../eventTempleBackend" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -114,12 +112,11 @@
       <workItem from="1566978362348" duration="869000" />
       <workItem from="1566979369217" duration="12781000" />
       <workItem from="1568026673315" duration="4784000" />
-<<<<<<< HEAD
       <workItem from="1568112315076" duration="23260000" />
-=======
       <workItem from="1568112315076" duration="21974000" />
       <workItem from="1568203021183" duration="512000" />
->>>>>>> 037bd875ed588e4f20eaccf84d6a6cead4154791
+      <workItem from="1568275211179" duration="4169000" />
+      <workItem from="1568284525335" duration="7411000" />
     </task>
     <task id="LOCAL-00001" summary="context - fetch method">
       <created>1567090968151</created>

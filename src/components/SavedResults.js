@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../App.css';
-import Rating from "react-rating";
 import axios from "axios";
 import context from "../DataProvider";
 import Cards from "./Cards";
