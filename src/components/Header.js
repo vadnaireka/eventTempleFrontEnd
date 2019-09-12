@@ -35,15 +35,6 @@ class Header extends Component {
         this.setState({redirect: true});
     };
 
-    redirectTOSearchform = () => {
-        this.setState({url:"/searchform"});
-        this.setState({redirect: true});
-    };
-
-    redirectTOAbout= () => {
-        this.setState({url:"/about"});
-        this.setState({redirect: true});
-    };
 
     renderRedirect = () => {
         if (this.state.redirect) {
@@ -86,7 +77,6 @@ class Header extends Component {
     };
 
 
-
     render() {
         return (
             <div>
@@ -102,9 +92,13 @@ class Header extends Component {
                                // this.redirectToSaved();
                             }}>My Saved Events</Button>
                     <Button className="btn gomb  d-flex justify-content-center" variant="outline-info"
-                            onClick={this.redirectTOSearchform}>Search for Events</Button>
+                            onClick={(url) => {
+                                this.redirectToUrl("/searchform")
+                            }}>Search for Events</Button>
                     <Button className="btn gomb d-flex justify-content-center" variant="outline-info"
-                            onClick={this.redirectTOAbout}>About</Button>
+                            onClick={(url) => {
+                                this.redirectToUrl("/about")
+                            }}>About</Button>
                 </div>
             </div>
 
