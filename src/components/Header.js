@@ -43,7 +43,7 @@ class Header extends Component {
     redirectTOAbout= () => {
         this.setState({url:"/about"});
         this.setState({redirect: true});
-    }
+    };
 
     renderRedirect = () => {
         if (this.state.redirect) {
