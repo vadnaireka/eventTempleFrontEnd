@@ -52,12 +52,6 @@ class SearchResult extends Component {
     };
 
 
-    saveToDB = (data) => {
-        axios.post(`http://localhost:8080/save/`, {
-            eventEntity: data.id
-        });
-        this.setState({button: "Saved"})
-    };
 
     receivingData = (dataFromChild) => this.setState({datas: dataFromChild});
 

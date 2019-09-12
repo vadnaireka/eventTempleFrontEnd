@@ -7,13 +7,6 @@ import axios from "axios";
 
 class Cards extends Component {
 
-    saveToDB = (data) => {
-        console.log(data.id);
-        axios.post(`http://localhost:8080/save/`, {
-            eventEntity: data.id
-        });
-        this.setState({button: "Saved"})
-    };
 
     saveRating = (data, rate) => {
         console.log( " and the rate: " + rate);

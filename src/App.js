@@ -33,7 +33,7 @@ class App extends Component {
                         <Route path="/login" render={props => (
                             <Login auth="login" header="Please log in!" footer="For registration, click here!"/>
                         )}/><Route path="/registration" render={props => (
-                            <Login auth="Make me an account!" header="Please register!" footer="After registration, please log in!"/>
+                            <Login auth="registration" header="Please register!" footer="After registration, please log in!"/>
                         )}/>
                         <Route path="/searchform" render={props => (
                             <SearchForm/>
