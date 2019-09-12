@@ -21,6 +21,7 @@ export class DataProvider extends Component {
         saveddata: [],
         userdata: [],
         errors :[],
+        user : null,
         fetchData: (url, stateName) => {
             axios.get(url, {
                 headers: {
