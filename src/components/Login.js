@@ -23,8 +23,9 @@ class Login extends Component {
             password: this.state.password
         }).then(response => {
             localStorage.setItem('token', response.data.token);
-            console.log(localStorage.getItem("token"));
-            this.context.setUser(response.data.username)
+            localStorage.setItem('name', response.data.username);
+
+            this.context.setUser(localStorage.getItem("name"))
             }
         );
         this.redirectToUrl("/about");
