@@ -28,11 +28,12 @@ class Login extends Component {
             }
         );
         this.setState({redirect: true});
+
     };
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            return <Redirect to="/"/>
+            return <Redirect to="/about"/>
         }
     };
 

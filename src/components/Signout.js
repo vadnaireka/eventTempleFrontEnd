@@ -23,8 +23,8 @@ class Signout extends Component {
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            this.setState({redirect: false});
-            return <Redirect to={this.state.url}/>
+            // this.setState({redirect: false});
+            return <Redirect to="/"/>
         }
     };
 
@@ -32,13 +32,14 @@ class Signout extends Component {
     signout = () =>{
         localStorage.clear();
         this.redirectToMain();
-    }
+    };
+
     render() {
         return (
             <div className="navbar">
                 {this.renderRedirect()}
                 <Button className="btn gomb  d-flex justify-content-center" variant="outline-info"
-                        onClick={this.signout}>Sign out</Button>
+                        onClick={this.signout} href="http://localhost:3000/">Sign out</Button>
 
             </div>
         )

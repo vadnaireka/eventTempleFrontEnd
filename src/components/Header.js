@@ -24,7 +24,7 @@ class Header extends Component {
         if (localStorage.getItem("token") === null){
             this.redirectToSaved("/login")
         } else{
-        this.context.fetchData(`http://localhost:8080/saved/`, "saveddata")
+        this.context.fetchData(`http://localhost:8080/saved/`, "saveddata");
             this.redirectToSaved("/saved")
         }
     };
@@ -64,6 +64,7 @@ class Header extends Component {
 
     greetingUser = () => {
         console.log(this.expirationdata);
+
         if (localStorage.getItem("token") === null){
             return <AuthenticationNavBar/>
         } else {
