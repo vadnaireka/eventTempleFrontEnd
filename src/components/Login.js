@@ -48,7 +48,7 @@ class Login extends Component {
                            value={this.state.username} placeholder="User Name"/><br/>
                     <input className="auth-input" type="password" name="password" onChange={this.onChange}
                            value={this.state.password} placeholder="Password"/><br/>
-                    <input type="submit" value={this.props.auth}/>
+                    <input className="auth-input" type="submit" value={this.props.auth}/>
                 </form>
                 <p className="loginfooter"><a className="link" href="/registration"> {this.props.footer}</a></p>
             </div>

@@ -7,6 +7,7 @@ import axios from "axios";
 import '../App.css';
 import context from "../DataProvider";
 import SearchResult from "./SearchResult";
+import AuthenticationNavBar from "./AuthenticationNavBar";
 
 
 class Header extends Component {
@@ -30,15 +31,15 @@ class Header extends Component {
         this.setState({redirect: true});
     };
 
-    redirectToLogin = () => {
-        this.setState({url:"/login"});
-        this.setState({redirect: true});
-    };
-
-    redirectToRegistration = () => {
-        this.setState({url:"/registration"});
-        this.setState({redirect: true});
-    };
+    // redirectToLogin = () => {
+    //     this.setState({url:"/login"});
+    //     this.setState({redirect: true});
+    // };
+    //
+    // redirectToRegistration = () => {
+    //     this.setState({url:"/registration"});
+    //     this.setState({redirect: true});
+    // };
 
     renderRedirect = () => {
         if (this.state.redirect) {
@@ -53,12 +54,13 @@ class Header extends Component {
             <div>
                 {this.renderRedirect()}
                 <div className="header">
-                    <div className="navbar">
-                    <Button className="btn gomb  d-flex justify-content-center" variant="outline-info"
-                            onClick={this.redirectToLogin}>Login</Button>
-                    <Button className="btn gomb  d-flex justify-content-center registrationbtn" variant="outline-info"
-                            onClick={this.redirectToRegistration}>Registration</Button>
-                    </div>
+                    {/*<div className="navbar">*/}
+                    {/*<Button className="btn gomb  d-flex justify-content-center" variant="outline-info"*/}
+                    {/*        onClick={this.redirectToLogin}>Login</Button>*/}
+                    {/*<Button className="btn gomb  d-flex justify-content-center registrationbtn" variant="outline-info"*/}
+                    {/*        onClick={this.redirectToRegistration}>Registration</Button>*/}
+                    {/*</div>*/}
+                    <AuthenticationNavBar/>
                     <h1>Event Temple</h1>
                     <div className="sepline"></div>
                 </div>
