@@ -5,29 +5,74 @@ import Button from "react-bootstrap/Button";
 import {Redirect} from 'react-router-dom';
 import axios from "axios";
 import '../App.css';
+import context from "../DataProvider";
+import SearchResult from "./SearchResult";
+import AuthenticationNavBar from "./AuthenticationNavBar";
+import {number} from "prop-types";
+import Greeting from "./Greeting";
+import Title from "./Title";
 
 
 class Header extends Component {
 
     state = {
         redirect: false,
+        url:""
+
     };
 
-    componentDidMount = () => {
-        axios.get(`http://localhost:8080/saved/`)
-            .then(response => {
-                this.props.sendDataToParent(Array.from(response.data));
-            })
+    loadSavedEvents = () => {
+        if (localStorage.getItem("token") === null){
+            this.redirectToUrl("/login")
+        } else{
+        this.context.fetchData(`http://localhost:8080/saved/`, "saveddata");
+            this.redirectToUrl("/saved")
+        }
     };
 
-    redirectToSaved = () => {
+    redirectToUrl = (url) => {
+        this.setState({url:url});
         this.setState({redirect: true});
     };
+
 
     renderRedirect = () => {
         if (this.state.redirect) {
             this.setState({redirect: false});
-            return <Redirect to="/saved"/>
+            return <Redirect to={this.state.url}/>
+        }
+    };
+
+    parseJwt = (token) => {
+        let base64Url = token.split('.')[1];
+        let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        let jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+
+        return JSON.parse(jsonPayload);
+    };
+
+    tokenPayload = () => {
+        if (localStorage.getItem("token") !== null){
+        this.parseJwt(localStorage.getItem("token"));
+        } else {
+            return null
+        }
+    };
+
+    expirationdata = this.tokenPayload.exp;
+
+    greetingUser = () => {
+        if (localStorage.getItem("token") === null || localStorage.getItem("token") === "undefined"){
+            return <AuthenticationNavBar/>
+        } else {
+            if (Date.now() >= this.expirationdata*1000){
+                localStorage.removeItem("token");
+                return <AuthenticationNavBar/>
+            } else {
+                return <Greeting/>
+            }
         }
     };
 
@@ -37,14 +82,23 @@ class Header extends Component {
             <div>
                 {this.renderRedirect()}
                 <div className="header">
-                    <h1>Event Temple</h1>
+                    {this.greetingUser()}
+                    <Title/>
                 </div>
-                <div className="d-flex justify-content-center">
-                <Button className="btn gomb  d-flex justify-content-center"  variant="outline-info"
-                    onClick={(event) => {
-                            this.redirectToSaved();
-                            this.componentDidMount();
-                        }}>My Saved Events</Button>
+                <div className="d-flex justify-content-center pagebtn">
+                    <Button className="btn gomb  d-flex justify-content-center" variant="outline-info"
+                            onClick={(event) => {
+                                this.loadSavedEvents();
+                               // this.redirectToSaved();
+                            }}>My Saved Events</Button>
+                    <Button className="btn gomb  d-flex justify-content-center" variant="outline-info"
+                            onClick={(url) => {
+                                this.redirectToUrl("/searchform")
+                            }}>Search for Events</Button>
+                    <Button className="btn gomb d-flex justify-content-center" variant="outline-info"
+                            onClick={(url) => {
+                                this.redirectToUrl("/about")
+                            }}>About</Button>
                 </div>
             </div>
 
@@ -52,4 +106,5 @@ class Header extends Component {
     }
 }
 
+Header.contextType = context;
 export default Header;

@@ -3,6 +3,7 @@ import {Redirect} from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../App.css';
+import context from "../DataProvider";
 
 
 class SearchForm extends Component {
@@ -22,19 +23,15 @@ class SearchForm extends Component {
     onSubmit = (e) => {
         this.setState({redirect: false});
         e.preventDefault();
-        axios.get(`http://localhost:8080/search/${this.state.city}/${this.state.startDate}/${this.state.endDate}/${this.state.keyword}/`)
-            .then(response => {
-                this.setState({receivedResponse: Array.from(response.data)});
-                this.props.sendDataToParent(Array.from(response.data));
-                this.setState({redirect: true});
-            })
+        this.context.fetchData(`http://localhost:8080/search/${this.state.city}/${this.state.startDate}/${this.state.endDate}/${this.state.keyword}/`, "searchdata");
+        this.setState({redirect: true});
     };
 
     renderRedirect = () => {
         if (this.state.redirect) {
             return <Redirect to="/search"/>
         }
-    }
+    };
 
 
     render() {
@@ -50,12 +47,13 @@ class SearchForm extends Component {
                            placeholder="Date to : 2019-10-02" value={this.state.endDate}/>
                     <input onChange={this.onChange} className="input" type="text" name="keyword" placeholder="music"
                            value={this.state.keyword}/>
-                    <input className="btn btn-outline-secondary" type="submit" name="" value="Submit"/>
+                    <p><input className="btn btn-outline-secondary" type="submit" name="" value="Submit"/></p>
                 </form>
             </div>
-
         )
     }
 }
+
+SearchForm.contextType = context;
 
 export default SearchForm;
