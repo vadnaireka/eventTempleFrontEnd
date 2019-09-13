@@ -21,7 +21,7 @@ export class DataProvider extends Component {
         saveddata: [],
         userdata: [],
         errors :[],
-        user : null,
+        user : localStorage.getItem("name"),
         fetchData: (url, stateName) => {
             axios.get(url, {
                 headers: {
